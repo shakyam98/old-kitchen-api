@@ -9,11 +9,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('restaurant_product', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('restaurant_id')->constrained('restaurants')->cascadeOnDelete();
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->boolean('in_stock')->default(true);
             $table->integer('item_count')->default(0);
-            $table->primary([
+            $table->unique([
                 'restaurant_id',
                 'product_id',
             ]);
