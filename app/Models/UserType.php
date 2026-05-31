@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class UserType extends Model
 {
+    public const ADMIN = 'admin';
+
+    public const MANAGER = 'manager';
+
+    public const CHEF = 'chef';
+
     protected $fillable = [
         'name',
     ];

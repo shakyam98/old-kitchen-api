@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
+    public const PENDING = 'pending';
+
+    public const CONFIRMED = 'confirmed';
+
+    public const PREPARING = 'preparing';
+
+    public const READY = 'ready';
+
+    public const OUT_FOR_DELIVERY = 'out_for_delivery';
+
+    public const DELIVERED = 'delivered';
+
+    public const CANCELLED = 'cancelled';
+
     protected $fillable = [
         'customer_id',
         'restaurant_id',

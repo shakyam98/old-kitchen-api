@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Otp extends Model
 {
+    public const PURPOSE_LOGIN = 'login';
+
+    public const PURPOSE_REGISTER = 'register';
+
+    public const PURPOSE_RESET_PASSWORD = 'reset_password';
+
     protected $table = 'otp';
 
     protected $fillable = [

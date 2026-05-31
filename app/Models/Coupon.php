@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Coupon extends Model
 {
+    public const TYPE_FIXED = 'fixed';
+
+    public const TYPE_PERCENTAGE = 'percentage';
+
     protected $fillable = [
         'code',
         'type',
