@@ -17,6 +17,7 @@ class StaffAuthController extends Controller
 
         if (
             ! $user ||
+            ! $user->is_active ||
             ! Hash::check(
                 $request->password,
                 $user->password

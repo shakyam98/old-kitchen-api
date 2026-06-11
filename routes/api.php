@@ -26,6 +26,20 @@ Route::prefix('v1')->group(function () {
 
     Route::prefix('staff')->group(function () {
         Route::post('/login', [StaffAuthController::class, 'login']);
-        Route::post('/create', [StaffController::class, 'store']);
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::middleware([
+                'role:admin,manager',
+            ])->group(function () {
+                Route::get('', [StaffController::class, 'index']);
+                Route::post('/create', [StaffController::class, 'store']);
+            });
+            Route::get('/{user}', [StaffController::class, 'show']);
+            Route::put('/{user}', [StaffController::class, 'update']);
+            Route::middleware([
+                'role:admin,manager',
+            ])->group(function () {
+                Route::patch('/{user}/status', [StaffController::class, 'updateStatus']);
+            });
+        });
     });
 });

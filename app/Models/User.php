@@ -16,10 +16,15 @@ class User extends Authenticatable
         'mobile',
         'password',
         'user_type_id',
+        'is_active',
     ];
 
     protected $hidden = [
         'password',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
     ];
 
     public function userType(): BelongsTo

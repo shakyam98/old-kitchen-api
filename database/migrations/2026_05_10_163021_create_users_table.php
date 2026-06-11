@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('mobile')->unique();
             $table->string('password');
             $table->foreignId('user_type_id')->constrained('user_types')->cascadeOnDelete();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
